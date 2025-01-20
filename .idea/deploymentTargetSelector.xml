@@ -5,21 +5,19 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="Espresso2Test">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-01-15T10:46:42.139929700Z">
-          <Target type="DEFAULT_BOOT">
-            <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\WINDOWS\.android\avd\Medium_Phone_API_35.avd" />
-            </handle>
-          </Target>
-        </DropdownSelection>
-        <DialogSelection />
-      </SelectionState>
-      <SelectionState runConfigName="testName()">
+      <SelectionState runConfigName="testOpenGallery()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="testEsspresso()">
+      <SelectionState runConfigName="testOpenToolbar()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="openGalleryTest()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="numberElementsTest()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="idlingResourcesTest()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
