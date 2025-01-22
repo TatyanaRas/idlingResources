@@ -3,18 +3,15 @@ package ru.kkuzmichev.simpleappforespresso;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
-import static java.util.regex.Pattern.matches;
-
-
 
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.test.espresso.IdlingRegistry;
-import androidx.test.espresso.ViewAssertion;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -26,14 +23,15 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 
 public class IdlingTest {
 
+
     @Rule
-    public ActivityScenarioRule<MainActivity> mActivityScenarioRule =
-            new ActivityScenarioRule<>(MainActivity.class);
+    public ActivityScenarioRule<MainActivity> mActivityScenarioRule = new ActivityScenarioRule<>(MainActivity.class);
 
     @Before
     public void registerIdlingResources() {
@@ -49,25 +47,29 @@ public class IdlingTest {
     }
 
 
-  @Test
+    @Test
     public void testOpenGallery() {
 
         ViewInteraction menu = onView(isAssignableFrom(AppCompatImageButton.class));
 
-      menu.check(matches(isDisplayed()));
+        menu.check(matches(isDisplayed()));
         menu.perform(click());
 
 
         ViewInteraction gallery = onView(withId(R.id.nav_gallery));
         gallery.perform(click());
 
-       ViewInteraction recyclerView = onView(CustomViewMatcher.recyclerViewSizeMatcher(10));
-        recyclerView.check((ViewAssertion) isDisplayed());
-        recyclerView.check((CustomViewAssertions.isRecyclerView()));
+
+        ViewInteraction recyclerView = onView(withId(R.id.recycle_view));
+        recyclerView.check(matches(CustomViewMatcher.recyclerViewSizeMatcher(10)));
+
 
         ViewInteraction itemSeven = onView((allOf(withId(R.id.item_number), withText("7"))));
         itemSeven.check(matches(withText("7")));
+
     }
+
+
 }
 
 

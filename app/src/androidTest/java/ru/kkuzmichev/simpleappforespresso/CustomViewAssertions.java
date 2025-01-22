@@ -6,11 +6,15 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.espresso.ViewAssertion;
-import androidx.test.espresso.assertion.ViewAssertions;
+
+import org.hamcrest.Matcher;
 
 
 public class CustomViewAssertions {
-    public static ViewAssertion isRecyclerView() {
+
+     public static ViewAssertion isRecyclerView() {
+
+
         return new ViewAssertion() {
 
             @Override
